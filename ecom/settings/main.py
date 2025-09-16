@@ -7,7 +7,7 @@ env = Env()
 
 BASE_DIR: Path = Path(__file__).resolve().parent.parent
 SECRET_KEY: str = env.str('SECRET_KEY', 'default-secret-key')
-DEBUG: bool = False
+DEBUG: bool = True
 ALLOWED_HOSTS: List[str] = ['www.domain.com', ]
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
