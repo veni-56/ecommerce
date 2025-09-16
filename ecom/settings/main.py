@@ -48,8 +48,8 @@ INSTALLED_APPS = [
 # endregion
 
 
-DEFAULT_FROM_EMAIL = env.str('DEFAULT_FROM_EMAIL', '')
-NOTIFY_EMAIL: str = env('NOTIFY_EMAIL', '')
+DEFAULT_FROM_EMAIL = env.str('DEFAULT_FROM_EMAIL', 'itsmeveni5@gmail.com')
+NOTIFY_EMAIL = env.str('NOTIFY_EMAIL', 'itsmeveni5@gmail.com')
 
 # Middleware
 # region
@@ -61,6 +61,7 @@ MIDDLEWARE: List[str] = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+     'allauth.account.middleware.AccountMiddleware',
 ]
 # endregion
 
@@ -83,16 +84,17 @@ TEMPLATES: List[Dict[str, Any]] = [{
 
 # Database
 # region
-DATABASES: Dict[str, Dict[str, Any]] = {
+DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env.str('DATABASE_NAME', 'django_ecommerce'),
-        'USER': env.str('DATABASE_USER', 'postgres'),
-        'PASSWORD': env.str('DATABASE_PASSWORD', '12345'),
-        'HOST': env.str('DATABASE_HOST', 'localhost'),
-        'PORT': env.str('DATABASE_PORT', '5432'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'django_ecommerce',
+        'USER': 'postgres',
+        'PASSWORD': '12345',  
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
+
 # endregion
 
 
